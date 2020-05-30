@@ -1,0 +1,132 @@
+    /* SPLASH PAGE CSS */
+    
+    .splash {
+        margin: .5rem;
+        background-color: white;
+        color: white;
+    }
+    
+    .splashnav div a {
+        color: black;
+        font-size: 3rem;
+        margin-right: 15px;
+    }
+    
+    #social-links {
+        display: none;
+    }
+    
+    .box {
+        text-align: center;
+        font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", sans-serif;
+    }
+    
+    .box h1 {
+        font-size: 5rem;
+        font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", sans-serif;
+    }
+    
+    .box h2 {
+        font-size: 3rem;
+        color: black;
+    }
+    
+    footer {
+        display: none;
+        color: black;
+        position: fixed;
+    }
+    
+    .myButton {
+        box-shadow: inset 0px 1px 0px 0px #ffffff;
+        background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+        background-color: #ededed;
+        border-radius: 6px;
+        border: 1px solid #dcdcdc;
+        display: inline-block;
+        cursor: pointer;
+        color: #0f0d0f;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 26px;
+        font-weight: bold;
+        padding: 6px 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #ffffff;
+        opacity: 0.75;
+    }
+    
+    .myButton:hover {
+        opacity: 1.0;
+    }
+    
+    @media (min-width: 598px) {
+        #social-links {
+            display: block;
+        }
+        #hamburger-menu {
+            display: none;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .splash {
+            background-image: url('../img/md.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        footer {
+            display: block;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+        main {
+            text-shadow: 1px 1px #153c43;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .splash {
+            background-image: url('../img/lg.jpg');
+        }
+        .splashnav a {
+            font-size: 1.5rem;
+        }
+        main h1 {
+            font-size: 5rem;
+        }
+        main h2 {
+            font-size: 3rem;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .splash {
+            background-image: url('../img/xl.jpg');
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        .menunav .search-container {
+            float: none;
+        }
+        .menunav a,
+        .menunav input[type=text],
+        .menunav .search-container button {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 5px;
+        }
+        .menunav input[type=text] {
+            border: 1px solid #ccc;
+        }
+        @media screen and (max-width: 992px) {
+            .menunav a {
+                padding: 10px 15px;
+            }
+        }
+    }
