@@ -62,6 +62,12 @@ class App extends Component {
     <Route path="/item/:name" component={DetailPage}/>
     </Switch>
     </div>
+    <footer id="contact">
+      <address>
+        Contact us at <a aria-label="email-link" id="mailLink" href="mailto:mycloset@gmail.com">mycloset@gmail.com</a>, or at <a aria-label="phone number" id="number" href="tel:123-456-7890">(123) 456-7890</a>
+      </address>
+      <p>&copy; INFO 340 MyCloset.</p>
+    </footer>
   </div>
       </ReactiveBase>
     );
