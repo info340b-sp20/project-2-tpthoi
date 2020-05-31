@@ -1,0 +1,53 @@
+.container {
+
+    text-align: center;
+}
+
+
+/* inspiration citation: https://css-tricks.com/snippets/css/typewriter-effect/" 
+   gives the typing effect for the beginning sentence
+*/
+.typingIt p {
+    overflow: hidden; 
+
+    margin: 0 auto; 
+    letter-spacing: .20em; 
+
+    border-right: .30em solid;
+    white-space: nowrap;
+
+    animation: typer 3.5s steps(40, end), blinking .75s step-end;
+  }
+  
+  @keyframes typer {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.view {
+   /* background-image: url('../images/road.png');  */
+    background-color: lightblue;
+    background-size: cover;
+}
+
+.navbar-container {
+    height: 15px;
+}
+
+
+.ListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
+.lists {
+    flex:1;
+    width: fit-content;
+}
+
+.clothes {
+    flex:1;
+    width: fit-content;
+}
