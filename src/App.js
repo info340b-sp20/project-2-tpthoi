@@ -3,6 +3,9 @@ import { ReactiveBase, DataSearch, MultiList, ResultCard } from '@appbaseio/reac
 import './App.css'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
+import { Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
+import _ from 'lodash';
+import SAMPLE_DOGS from './data.json'; //a sample list of dogs (model)
 
 class App extends Component {
   render() {
@@ -52,10 +55,46 @@ class App extends Component {
     </ div>
 
     <div className="clothes"> 
-      <ClothesCard />
+    <Switch>
+    <Route exact path="/" component= {ClothesCard}/>
+    <Route path="/item/:name" component={DetailPage}/>
+    </Switch>
     </div>
   </div>
       </ReactiveBase>
+    );
+  }
+}
+
+
+class DetailPage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {pet: undefined
+    };
+  }
+
+  componentDidMount(){
+    let clothesName = this.props.match.params.name;
+    //pretend we loaded external data    
+    let clothesObj =  _.find(SAMPLE_DOGS, {title: clothesName}); //find pet in data
+    this.setState({clothes: clothesObj});
+  }
+
+  render() {
+    let clothes = this.state.clothes
+    if(!clothes) return <h2>No clothing specified</h2> //if unspecified
+
+    return (
+      <div>
+        <img src={clothes.image}/>
+        <h2>{clothes.title}</h2>
+        <ul>
+          <li>{"Brand: " + clothes.brand}</li>
+          <li>{"Color: " + clothes.color}</li>
+          <li>{"Type: " + clothes.type}</li>
+          </ul>
+      </div>
     );
   }
 }
@@ -275,20 +314,42 @@ class ClothesCard extends Component {
   render() {
     return(
       <ResultCard
-        componentId="results"
-        dataField="title"
-        react={{
-          and: ["mainSearch","brands-list","colors-list","types-list"]
-        }}
-        onData={(res) => (
-          {
-            "image": res.image,
-            "title": res.title,
-          }
-        )}
-      />
-    )
-  }
-}
+      componentId="results"
+      dataField="title"
+      react={{
+        and: ["mainSearch","brands-list","colors-list","types-list"]
+      }}
+  onData={function(res) {
+    return {
+      description: (
+        <div>
+          <div className="ih-item square effect6 top_to_bottom">
+            <a
+              target="#"
+              href={"/item/" + res.title}
+            >
+              <div className="img">
+                <img
+                  src={
+                    res.image
+                  }
+                  alt={res.title}
+                  className="result-image"
+                />
+              </div>
+              <div className="info colored">
+                <h3 className="overlay-title">
+                  {res.title}
+                </h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      )
+    };
+  }}
+/>
+      
+    )}}
 
 export default App;
