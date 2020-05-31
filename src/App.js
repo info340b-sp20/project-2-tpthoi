@@ -39,10 +39,10 @@ class App extends Component {
         </header>
       </div>
   
-      <div className="ListContainer">
-        <div className="search">
+      <div className="search">
           <Search />
-        </div>
+      </div>
+      <div className="ListContainer">
 
         <div className="lists">
           <BrandList />
@@ -50,17 +50,16 @@ class App extends Component {
           <ColorList />
 
           <TypesList />
-        </ div>
 
-        <div className="sortingContainer"> 
           <SortCards />
         </ div>
 
-    <div className="clothes"> 
-    <Switch>
-    <Route exact path="/" component= {ClothesCard}/>
-    <Route path="/item/:name" component={DetailPage}/>
-    </Switch>
+        <div className="clothes" id="closet"> 
+          <Switch>
+            <Route exact path="/" component= {ClothesCard}/>
+            <Route path="/item/:name" component={DetailPage}/>
+          </Switch>
+        </div>
     </div>
     <footer id="contact">
       <address>
@@ -68,7 +67,6 @@ class App extends Component {
       </address>
       <p>&copy; INFO 340 MyCloset.</p>
     </footer>
-  </div>
       </ReactiveBase>
     );
   }

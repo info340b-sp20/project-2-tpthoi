@@ -1,6 +1,7 @@
 .container {
 
     text-align: center;
+    min-width: 100%;
 }
 
 
@@ -32,6 +33,9 @@
 
 .navbar-container {
     height: 15px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .navbar-nav a {
@@ -43,18 +47,34 @@
 
 .ListContainer {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: flex-start;
 }
 
 .lists {
-    flex:1;
-    width: fit-content;
+    width: 15%;
+    border: 2px solid #86ddf8;
+    border-radius: 3px;
+    flex-shrink: 2;
+}
+
+.sortingContainer {
+    margin-top: 20px;
+}
+
+.search {
+    margin-left: auto;
+    width: 45%;
+    border: 2px solid #86ddf8;
+    border-radius: 3px;
 }
 
 .clothes {
     flex:1;
     width: fit-content;
+    flex-direction: column;
 }
 
 footer {
@@ -175,3 +195,6 @@ footer {
     transform: translateY(0);
   }
   
+  #number, #mailLink{
+    color: navy;
+}
