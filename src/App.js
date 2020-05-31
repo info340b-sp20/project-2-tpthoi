@@ -7,55 +7,63 @@ import Dropdown from 'react-bootstrap/Dropdown'
 class App extends Component {
   render() {
     return (
-
-      
       <ReactiveBase
         app="clothes"
         credentials="EjhqnRm46:f8bcb824-c33d-49ff-a2fd-b9882162c66a"
       >
 
-    <div className= 'container'>
-      <header id="header" className="jumbotron jumbotron-fluid text-white bg-dark">
-          <div className="view">
-          <h1 className="text-center">My Closet</h1>
-          <div className="typingIt">
-            <p className="lead text-center">
-                A way to see your whole closet with just one click
-            </p>
-          </div>
+      <div className= 'container'>
+        <header id="header" className="jumbotron jumbotron-fluid text-white bg-dark">
+            <div className="view">
+              <h1 className="text-center">My Closet</h1>
+                <div className="typingIt">
+                  <p className="lead text-center">
+                      A way to see your whole closet with just one click
+                  </p>
+                </div>
 
-          <div classNAme="navbar-container">
-            <nav className="navbar navbar-expand navbar-dark">
-              <div className="navbar-nav">
-                </ div>
-            </nav>  
-          </div>      
-          </div>
+              <div className="navbar-container">
+                <nav className="navbar navbar-expand navbar-dark">
+                  <div className="navbar-nav">
+                    <a href="#/">Home</a>
+                    <a href="#closet">My Closet</a>
+                    <a href="#/">Build an Outfit</a>
+                    <a href="#contact">Contact Us</a>
+                  </div>
+                </nav>  
+              </div>      
+            </div>
         </header>
-    </div>
+      </div>
   
-  <div className="ListContainer">
-    <div>
-      <Search />
-    </div>
+      <div className="ListContainer">
+        <div className="search">
+          <Search />
+        </div>
 
-    <div className="lists">
-      <BrandList />
-    
-      <ColorList />
+        <div className="lists">
+          <BrandList />
+        
+          <ColorList />
 
-      <TypesList />
-    </ div>
+          <TypesList />
+        </ div>
 
-    <div className="sortingContainer"> 
-      <SortCards />
-    </ div>
+        <div className="sortingContainer"> 
+          <SortCards />
+        </ div>
 
-    <div className="clothes"> 
-      <ClothesCard />
-    </div>
-  </div>
-      </ReactiveBase>
+        <div className="clothes" id="closet"> 
+          <ClothesCard />
+        </div>
+      </div>
+      <footer id="contact">
+        <address>
+          Contact us at <a aria-label="email-link" id="mailLink" href="mailto:mycloset@gmail.com">mycloset@gmail.com</a>, or at <a aria-label="phone number" id="number" href="tel:123-456-7890">(123) 456-7890</a>
+        </address>
+        <p>&copy; INFO 340 MyCloset.</p>
+      </footer>
+          </ReactiveBase>
     );
   }
 }

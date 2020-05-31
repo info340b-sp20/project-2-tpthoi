@@ -34,13 +34,18 @@
     height: 15px;
 }
 
+.navbar-nav a {
+    margin-top: 25px; 
+    padding-left:30px;
+    padding-right:30px;
+}
+
 
 .ListContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
-
 
 .lists {
     flex:1;
@@ -50,4 +55,8 @@
 .clothes {
     flex:1;
     width: fit-content;
+}
+
+footer {
+    margin-left: 2rem;
 }
