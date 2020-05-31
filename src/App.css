@@ -5,6 +5,11 @@
 }
 
 
+h1 {
+    color: purple;
+}
+
+
 /* inspiration citation: https://css-tricks.com/snippets/css/typewriter-effect/" 
    gives the typing effect for the beginning sentence
 */
@@ -17,6 +22,8 @@
     border-right: .30em solid;
     white-space: nowrap;
 
+    color: purple;
+
     animation: typer 3.5s steps(40, end), blinking .75s step-end;
   }
   
@@ -26,7 +33,6 @@
 }
 
 .view {
-   /* background-image: url('../images/road.png');  */
     background-color: lightblue;
     background-size: cover;
 }
@@ -39,6 +45,8 @@
 }
 
 .navbar-nav a {
+    color: darkolivegreen;
+    font-size: 1.5rem;
     margin-top: 25px; 
     padding-left:30px;
     padding-right:30px;
@@ -64,6 +72,13 @@
     margin-top: 20px;
 }
 
+#dropdown-basic-button {
+    background-color: lightblue;
+    color: purple;
+    font-size: 1rem;
+    width: 10rem;
+}
+
 .search {
     margin-left: auto;
     width: 45%;
@@ -78,7 +93,9 @@
 }
 
 footer {
+    margin-top: 5rem;
     margin-left: 2rem;
+    text-align: center;
 }
 
 

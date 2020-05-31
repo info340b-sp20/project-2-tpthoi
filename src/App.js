@@ -16,7 +16,7 @@ class App extends Component {
       >
 
       <div className= 'container'>
-        <header id="header" className="jumbotron jumbotron-fluid text-white bg-dark">
+        <header id="header" className="jumbotron jumbotron-fluid bg-dark">
             <div className="view">
               <h1 className="text-center">My Closet</h1>
                 <div className="typingIt">
@@ -26,7 +26,7 @@ class App extends Component {
                 </div>
 
               <div className="navbar-container">
-                <nav className="navbar navbar-expand navbar-dark">
+                <nav className="navbar navbar-expand">
                   <div className="navbar-nav">
                     <a href="#/">Home</a>
                     <a href="#closet">My Closet</a>
@@ -65,7 +65,7 @@ class App extends Component {
       <address>
         Contact us at <a aria-label="email-link" id="mailLink" href="mailto:mycloset@gmail.com">mycloset@gmail.com</a>, or at <a aria-label="phone number" id="number" href="tel:123-456-7890">(123) 456-7890</a>
       </address>
-      <p>&copy; INFO 340 MyCloset.</p>
+      <p>&copy; Colten  Pragyna  Tyson  Yash</p>
     </footer>
       </ReactiveBase>
     );
