@@ -8,7 +8,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
 import _ from 'lodash';
-import SAMPLE_DOGS from './data.json'; //a sample list of clothes(model)
+import CLOTHES from './data.json'; //a sample list of clothes(model)
 import {Splash} from './splash';
 
 import firebase, { database } from 'firebase/app';
@@ -218,7 +218,7 @@ class DetailPage extends Component {
   componentDidMount(){
     let clothesName = this.props.match.params.name;
     //pretend we loaded external data    
-    let clothesObj =  _.find(SAMPLE_DOGS, {title: clothesName}); //find pet in data
+    let clothesObj =  _.find(CLOTHES, {title: clothesName}); //find pet in data
     this.setState({clothes: clothesObj});
   }
 
@@ -227,15 +227,27 @@ class DetailPage extends Component {
     if(!clothes) return <h2>No clothing specified</h2> //if unspecified
 
     return (
-      <div>
-        <img src={clothes.image}/>
-        <h2>{clothes.title}</h2>
-        <ul>
-          <li>{"Brand: " + clothes.brand}</li>
-          <li>{"Color: " + clothes.color}</li>
-          <li>{"Type: " + clothes.type}</li>
-          </ul>
-      </div>
+      <div className="ListContainer">
+      <div className="SelectionContainer">
+    <div className="yourItem ListContainer">
+      <div className="clothescont">
+      <img class="clothesimg" src={clothes.image}/> </div>
+      <div className="clothesdetails">
+      <h2 class="clothesheader">{clothes.title}</h2>
+      <h3 class="tagheader tagdetail">{"Categories of item"}</h3>
+      <ul>
+        <li class="tagdetail">{"Brand: " + clothes.brand}</li>
+        <li class="tagdetail">{"Color: " + clothes.color}</li>
+        <li class="tagdetail">{"Type: " + clothes.type}</li>
+        </ul>
+        </div>
+    </div>
+    <div className="yourItem">
+    <h2 className="additional">{"Find an additional item"}</h2>
+    <ClothesCard/>
+    </div>
+    </div>
+    </div>
     );
   }
 }
@@ -476,6 +488,9 @@ class ClothesCard extends Component {
       <ResultCard
       componentId="results"
       dataField="title"
+      pagination="true"
+      size="10"
+      showResultStats={false}
       react={{
         and: ["mainSearch","brands-list","colors-list","types-list"]
       }}
