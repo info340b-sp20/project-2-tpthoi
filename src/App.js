@@ -113,6 +113,7 @@ class RandomPage extends Component {
       this.setState({cardArray: objectArray});
     });
   }
+
  // componentDidUpdate() {
   //   if (this.state.rootRef != )
   // }
@@ -136,8 +137,9 @@ class RandomPage extends Component {
         ImageCard:"",
         TypeCard:"",
         TitleCard:""
-      })
-    });
+    })}).catch((d) => console.log("error " + d));
+
+  return (<DisplayList cardValue={this.state.cardArray}/>);
   }
   render() {
     let newArray = Object.keys(this.state.cardArray);
@@ -159,7 +161,7 @@ class RandomPage extends Component {
                 type="input" name="input" 
                 aria-label="Brand Input" 
                 className= "form-control"
-                onChange= {(event) => this.setState({brandCard: event.target.value})}
+                onChange= {(event) => this.setState({BrandCard: event.target.value})}
                 />
 
               <label for="brand_input" aria-label="source Input">Color:  </label>
