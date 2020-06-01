@@ -115,12 +115,13 @@ class FilterBase extends Component {
       </div>
 
       <div className="ListContainer">
-
         <div className="lists">
+          <h2>Filters</h2>
+          <h3>Brands</h3>
           <BrandList />
-        
+          <h3>Colors</h3>
           <ColorList />
-
+          <h3>Type</h3>
           <TypesList />
 
           <SortCards />
@@ -132,13 +133,13 @@ class FilterBase extends Component {
             <Route path="/item/:name" component={DetailPage}/>
           </Switch>
         </div>
-    </div>
-    <footer id="contact">
-      <address>
-        Contact us at <a aria-label="email-link" id="mailLink" href="mailto:mycloset@gmail.com">mycloset@gmail.com</a>, or at <a aria-label="phone number" id="number" href="tel:123-456-7890">(123) 456-7890</a>
-      </address>
-      <p>&copy; Colten  Pragyna  Tyson  Yash</p>
-    </footer>
+      </div>
+      <footer id="contact">
+        <address>
+          Contact us at <a aria-label="email-link" id="mailLink" href="mailto:mycloset@gmail.com">mycloset@gmail.com</a>, or at <a aria-label="phone number" id="number" href="tel:123-456-7890">(123) 456-7890</a>
+        </address>
+        <p>&copy; Colten  Pragyna  Tyson  Yash</p>
+      </footer>
       </ReactiveBase>
     );
   }
@@ -209,12 +210,14 @@ class SortCards extends Component {
 class Search extends Component {
   render() {
     return(
+      <label className="searching">
       <DataSearch
       componentId="mainSearch"
       dataField={["title", "brand","color","type"]}
       queryFormat="and"
       placeholder="Search for clothing..."  
     />
+    </label>
     );
   }
 
