@@ -39,7 +39,6 @@ class App extends Component {
   render() {
     let mainBase = '';
     if (this.state.filter) {
-      console.log("Made it bro")
       mainBase = <FilterBase />;
 
       console.log(mainBase)
@@ -47,8 +46,8 @@ class App extends Component {
     } 
 
     if (this.state.sorted) {
-      console.log("U are stooopid")
       mainBase = <RandomPage />
+      console.log("made it here");
     }
     
 
@@ -93,7 +92,7 @@ class RandomPage extends Component {
     super(props);
 
     this.state = {
-      cardsArray: ''
+      cardsArray: []
     }
   }
 
@@ -105,28 +104,23 @@ class RandomPage extends Component {
       this.setState({cardsArray: objectArray});
     });
   }
-  
 
   render() {
+    let newArray = Object.keys(this.state.cardsArray);
+    console.log(newArray);
 
-    
-
-    console.log(this.state.cardsArray);
-
-
-    
-  return (
-    <div>
-      <h1>
-        Sort It Out
-      </h1>
-
+    return (
       <div>
-        <DisplayList cardValue={this.state.cardsArray}/>
-      </div>
-      </div>
-  );
-}
+        <h1>
+          What do I own? 
+        </h1>
+
+        <div>
+          <DisplayList cardValue={this.state.cardsArray}/>
+        </div>
+        </div>
+    );
+  }
 }
 
  class DisplayList extends Component {
@@ -157,7 +151,10 @@ render() {
           <div className="card">
               <img className="card-img-top" src={this.props.cardValue.image} />
           <div className="card-body">
-          <h2 className="card-title"></h2>
+          <h2 className="card-title">{this.props.cardValue.title}</h2>
+          <p className="card-text">Brand: {this.props.cardValue.brand}</p>
+          <p className="card-text">Color: {this.props.cardValue.color}</p>
+          <p className="card-text">Type: {this.props.cardValue.type}</p>
           </div>
           </div>
       );
