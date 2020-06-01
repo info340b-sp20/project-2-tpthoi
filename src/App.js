@@ -9,6 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import SAMPLE_DOGS from './data.json'; //a sample list of clothes(model)
+import CLOTHES from './data.json'; //a sample list of clothes(model)
 
 import firebase, { database } from 'firebase/app';
 import 'firebase/auth';
@@ -91,21 +92,52 @@ class RandomPage extends Component {
     super(props);
 
     this.state = {
-      cardsArray: []
-    }
+      cardArray: [],
+      BrandCard: '',
+      ColorCard: '',
+      ImageCard: '',
+      TypeCard: '', 
+      TitleCard: '',
+      rootRef: firebase.database().ref()
+        }
   }
 
   componentDidMount() {
-    let rootRef = firebase.database().ref();
+    //let rootRef = firebase.database().ref();
      
-    rootRef.on('value', (snapshot) => {
+    this.state.rootRef.on('value', (snapshot) => {
       let objectArray = snapshot.val();
-      this.setState({cardsArray: objectArray});
+      this.setState({cardArray: objectArray});
     });
   }
+ // componentDidUpdate() {
+  //   if (this.state.rootRef != )
+  // }
 
+  addCard() {
+    console.log("made it here");
+    let newCard = {
+      brand: this.state.BrandCard,
+      color: this.state.ColorCard, 
+      image: this.state.ImageCard, 
+      type: this.state.TypeCard, 
+      title: this.state.TitleCard
+    }
+
+    this.state.rootRef
+    .push(newCard)
+    .then(() => {
+      this.setState({
+        BrandCard:"",
+        ColorCard:"",
+        ImageCard:"",
+        TypeCard:"",
+        TitleCard:""
+      })
+    });
+  }
   render() {
-    let newArray = Object.keys(this.state.cardsArray);
+    let newArray = Object.keys(this.state.cardArray);
     console.log(newArray);
 
     return (
@@ -113,9 +145,69 @@ class RandomPage extends Component {
         <h1>
           What do I own? 
         </h1>
+        <div class="formContainer">
+          <form>
+            <div className="InputContainer">
 
+              <label for="brand_input" aria-label="source Input">Brand: </label>
+              <input 
+                id="brand_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({brandCard: event.target.value})}
+                />
+
+              <label for="brand_input" aria-label="source Input">Color:  </label>
+              <input 
+                id="color_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({ColorCard: event.target.value})}
+                />
+
+              <label for="brand_input" aria-label="source Input">Image: </label>
+              <input 
+                id="image_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({ImageCard: event.target.value})}
+                />
+
+
+              <label for="brand_input" aria-label="source Input">Title:  </label>
+              <input 
+                id="title_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({TitleCard: event.target.value})}
+                />
+
+              <label for="brand_input" aria-label="source Input">Type: </label>
+              <input 
+                id="type_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({TypeCard: event.target.value})}
+                />
+            </div>
+
+            <div class="buttonContainer">
+              <button className="btn btn-primary" onClick={() => this.addCard()} id="submitButton" type="submit">Add Card</button>
+            </div>
+          </form>
+        </div>
         <div>
-          <DisplayList cardValue={this.state.cardsArray}/>
+          <DisplayList cardValue={this.state.cardArray}/>
         </div>
         </div>
     );
@@ -141,8 +233,33 @@ class RandomPage extends Component {
           {cardArray};
         </div>
       );
-    }
- }
+
+}
+}
+
+//  class DisplayList extends Component {
+   
+//     render() {
+
+//       let objectCards = "";
+
+//       objectCards = rootRef.on('value', (snapshot) => {
+//       let objectArray = snapshot.val();
+//       return objectArray; 
+//     });
+  
+
+//       let cardArray = this.props.cardValue.map((card) => {
+//         return(<DisplayCard cardValue={card}/>);
+//       })
+
+//       return(
+//         <div className="card-deck">
+//           {cardArray};
+//         </div>
+//       );
+//     }
+//  }
 
 class DisplayCard extends Component {
 render() {
@@ -159,6 +276,22 @@ render() {
       );
   }
 }
+// class DisplayCard extends Component {
+// render() {
+
+ 
+//   console.log(this.props.cardValue);
+
+//       return(
+//           <div className="card">
+//               <img className="card-img-top" src={this.props.cardValue.image} />
+//           <div className="card-body">
+//           <h2 className="card-title"></h2>
+//           </div>
+//           </div>
+//       );
+//   }
+// }
 
 
 class FilterBase extends Component {
@@ -214,7 +347,7 @@ class DetailPage extends Component {
   componentDidMount(){
     let clothesName = this.props.match.params.name;
     //pretend we loaded external data    
-    let clothesObj =  _.find(SAMPLE_DOGS, {title: clothesName}); //find pet in data
+    let clothesObj =  _.find(CLOTHES, {title: clothesName}); //find pet in data
     this.setState({clothes: clothesObj});
   }
 
@@ -223,15 +356,27 @@ class DetailPage extends Component {
     if(!clothes) return <h2>No clothing specified</h2> //if unspecified
 
     return (
-      <div>
-        <img src={clothes.image}/>
-        <h2>{clothes.title}</h2>
-        <ul>
-          <li>{"Brand: " + clothes.brand}</li>
-          <li>{"Color: " + clothes.color}</li>
-          <li>{"Type: " + clothes.type}</li>
-          </ul>
-      </div>
+      <div className="ListContainer">
+      <div className="SelectionContainer">
+    <div className="yourItem ListContainer">
+      <div className="clothescont">
+      <img class="clothesimg" src={clothes.image}/> </div>
+      <div className="clothesdetails">
+      <h2 class="clothesheader">{clothes.title}</h2>
+      <h3 class="tagheader tagdetail">{"Categories of item"}</h3>
+      <ul>
+        <li class="tagdetail">{"Brand: " + clothes.brand}</li>
+        <li class="tagdetail">{"Color: " + clothes.color}</li>
+        <li class="tagdetail">{"Type: " + clothes.type}</li>
+        </ul>
+        </div>
+    </div>
+    <div className="yourItem">
+    <h2 className="additional">{"Find an additional item"}</h2>
+    <ClothesCard/>
+    </div>
+    </div>
+    </div>
     );
   }
 }
@@ -472,6 +617,9 @@ class ClothesCard extends Component {
       <ResultCard
       componentId="results"
       dataField="title"
+      pagination="true"
+      size="10"
+      showResultStats={false}
       react={{
         and: ["mainSearch","brands-list","colors-list","types-list"]
       }}
