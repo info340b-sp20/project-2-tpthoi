@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ReactiveBase, DataSearch, MultiList, ResultCard } from '@appbaseio/reactivesearch';
 import './App.css'
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
 import { Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import SAMPLE_DOGS from './data.json'; //a sample list of dogs (model)
