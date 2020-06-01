@@ -2,12 +2,12 @@
     width: 100%;
     text-align: center;
     min-width: 100%;
+    padding: 0px 0px;
 }
 
 
 h1 {
     color: black;
-    font-size: xx-small;
 }
 
 
@@ -40,7 +40,7 @@ h1 {
   display: inline-block;
 
   padding-left: 0rem;
-    padding-right: 0rem;
+  padding-right: 0rem;
 }
 
 .view {

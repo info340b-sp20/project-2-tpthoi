@@ -67,10 +67,10 @@ class App extends Component {
             <div className="navbar-container">
               <nav className="navbar navbar-expand navbar-dark">
                 <div className="navbar-nav">
-                  <a href="#/">Home</a>
+                  <a href="/splash.html">Home</a>
                   {/* <a href="#closet">Filter My Closet</a> */}
-                  <a href="#filtering" onClick={this.handleClickFilter}>Filter My Closet</a>
-                  <a href="#closeting" onClick={this.handleClickCloset}>My Whole Closet</a>
+                  <a href="#closet" onClick={this.handleClickFilter}>Filter My Closet</a>
+                  <a href="#closet" onClick={this.handleClickCloset}>My Whole Closet</a>
                   <a href="#contact">Contact Us</a>
                 </div>
               </nav>  
