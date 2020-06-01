@@ -29,8 +29,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import firebase from 'firebase/app';
+import firebaseConfig from './Config';
 import { BrowserRouter as Router } from 'react-router-dom';
+
+firebase.initializeApp(firebaseConfig);
+
+
 ReactDOM.render(
   <Router>
   <React.StrictMode>

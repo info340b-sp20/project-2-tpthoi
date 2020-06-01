@@ -1,12 +1,13 @@
 .container {
-
+    width: 100%;
     text-align: center;
     min-width: 100%;
 }
 
 
 h1 {
-    color: purple;
+    color: black;
+    font-size: xx-small;
 }
 
 
@@ -22,7 +23,7 @@ h1 {
     border-right: .30em solid;
     white-space: nowrap;
 
-    color: purple;
+    color: black;
 
     animation: typer 3.5s steps(40, end), blinking .75s step-end;
   }
@@ -32,9 +33,20 @@ h1 {
     to { width: 100% }
 }
 
+
+#header {
+  margin: 0;
+  width: 100%;
+  display: inline-block;
+
+  padding-left: 0rem;
+    padding-right: 0rem;
+}
+
 .view {
     background-color: lightblue;
     background-size: cover;
+    width: 100%;
 }
 
 .navbar-container {
@@ -42,14 +54,18 @@ h1 {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
+    width: 100%;
+
+    padding-left: 0rem;
+    padding-right: 0rem;
 }
 
 .navbar-nav a {
-    color: darkolivegreen;
-    font-size: 1.5rem;
+    color: white;
+    font-size: 1.2rem;
     margin-top: 25px; 
-    padding-left:30px;
-    padding-right:30px;
+    padding-left:15px;
+    padding-right:15px;
 }
 
 

@@ -10,6 +10,10 @@ import { Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import SAMPLE_DOGS from './data.json'; //a sample list of clothes(model)
 
+import firebase, { database } from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -64,9 +68,9 @@ class App extends Component {
               <nav className="navbar navbar-expand navbar-dark">
                 <div className="navbar-nav">
                   <a href="#/">Home</a>
-                  <a href="#closet">Filter My Closet</a>
-                  <a href="#filtering" onClick={this.handleClickFilter}>All My Clothes</a>
-                  <a href="#closeting" onClick={this.handleClickCloset}>Build an Outfit</a>
+                  {/* <a href="#closet">Filter My Closet</a> */}
+                  <a href="#filtering" onClick={this.handleClickFilter}>Filter My Closet</a>
+                  <a href="#closeting" onClick={this.handleClickCloset}>My Whole Closet</a>
                   <a href="#contact">Contact Us</a>
                 </div>
               </nav>  
@@ -74,15 +78,6 @@ class App extends Component {
           </div>
       </header>
     </div>
-
-    {/* <div id="filtering">
-        <FilterBase />
-    </div>
-
-
-    <div id="closeting">
-        <RandomPage />
-    </div>  */}
 
     <div>
       {mainBase};
@@ -95,13 +90,62 @@ class App extends Component {
 
 class RandomPage extends Component {
   render() {
+    let rootRef = firebase.database().ref();
+    
   return (
-  <h1>
-    Sort It Out
-  </h1>
+    <div>
+      <h1>
+        Sort It Out
+      </h1>
+
+      {/* <div>
+        <DisplayList cardValue={rootRef}/>
+      </div> */}
+      </div>
   );
 }
 }
+
+//  class DisplayList extends Component {
+   
+//     render() {
+
+//       let objectCards = "";
+
+//       objectCards = rootRef.on('value', (snapshot) => {
+//       let objectArray = snapshot.val();
+//       return objectArray; 
+//     });
+  
+
+//       let cardArray = this.props.cardValue.map((card) => {
+//         return(<DisplayCard cardValue={card}/>);
+//       })
+
+//       return(
+//         <div className="card-deck">
+//           {cardArray};
+//         </div>
+//       );
+//     }
+//  }
+
+// class DisplayCard extends Component {
+// render() {
+
+ 
+//   console.log(this.props.cardValue);
+
+//       return(
+//           <div className="card">
+//               <img className="card-img-top" src={this.props.cardValue.image} />
+//           <div className="card-body">
+//           <h2 className="card-title"></h2>
+//           </div>
+//           </div>
+//       );
+//   }
+// }
 
 class FilterBase extends Component {
   render() {
