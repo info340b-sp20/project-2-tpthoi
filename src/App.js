@@ -92,32 +92,122 @@ class RandomPage extends Component {
     super(props);
 
     this.state = {
-      cardsArray: []
-    }
+      cardArray: [],
+      BrandCard: '',
+      ColorCard: '',
+      ImageCard: '',
+      TypeCard: '', 
+      TitleCard: '',
+      rootRef: firebase.database().ref()
+        }
   }
 
   componentDidMount() {
-    let rootRef = firebase.database().ref();
+    //let rootRef = firebase.database().ref();
      
-    rootRef.on('value', (snapshot) => {
+    this.state.rootRef.on('value', (snapshot) => {
       let objectArray = snapshot.val();
-      this.setState({cardsArray: objectArray});
+      this.setState({cardArray: objectArray});
     });
   }
+ // componentDidUpdate() {
+  //   if (this.state.rootRef != )
+  // }
 
+  addCard() {
+    console.log("made it here");
+    let newCard = {
+      brand: this.state.BrandCard,
+      color: this.state.ColorCard, 
+      image: this.state.ImageCard, 
+      type: this.state.TypeCard, 
+      title: this.state.TitleCard
+    }
+
+    this.state.rootRef
+    .push(newCard)
+    .then(() => {
+      this.setState({
+        BrandCard:"",
+        ColorCard:"",
+        ImageCard:"",
+        TypeCard:"",
+        TitleCard:""
+      })
+    });
+  }
   render() {
-    let newArray = Object.keys(this.state.cardsArray);
+    let newArray = Object.keys(this.state.cardArray);
     console.log(newArray);
 
-<<<<<<< Updated upstream
     return (
       <div>
         <h1>
           What do I own? 
         </h1>
+        <div class="formContainer">
+          <form>
+            <div className="InputContainer">
 
+              <label for="brand_input" aria-label="source Input">Brand: </label>
+              <input 
+                id="brand_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({brandCard: event.target.value})}
+                />
+
+              <label for="brand_input" aria-label="source Input">Color:  </label>
+              <input 
+                id="color_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({ColorCard: event.target.value})}
+                />
+
+              <label for="brand_input" aria-label="source Input">Image: </label>
+              <input 
+                id="image_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({ImageCard: event.target.value})}
+                />
+
+
+              <label for="brand_input" aria-label="source Input">Title:  </label>
+              <input 
+                id="title_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({TitleCard: event.target.value})}
+                />
+
+              <label for="brand_input" aria-label="source Input">Type: </label>
+              <input 
+                id="type_input" 
+                placeholder="e.g.(Nike)" 
+                type="input" name="input" 
+                aria-label="Brand Input" 
+                className= "form-control"
+                onChange= {(event) => this.setState({TypeCard: event.target.value})}
+                />
+            </div>
+
+            <div class="buttonContainer">
+              <button className="btn btn-primary" onClick={() => this.addCard()} id="submitButton" type="submit">Add Card</button>
+            </div>
+          </form>
+        </div>
         <div>
-          <DisplayList cardValue={this.state.cardsArray}/>
+          <DisplayList cardValue={this.state.cardArray}/>
         </div>
         </div>
     );
@@ -137,12 +227,13 @@ class RandomPage extends Component {
       let cardArray = this.props.cardValue.map((card) => {
         return(<DisplayCard cardValue={card}/>);
       })
-=======
-      {/* <div>
-        <DisplayList cardValue={rootRef}/>
-      </div> */}
-      </div>
-  );
+
+      return(
+        <div className="card-deck">
+          {cardArray};
+        </div>
+      );
+
 }
 }
 
@@ -161,7 +252,6 @@ class RandomPage extends Component {
 //       let cardArray = this.props.cardValue.map((card) => {
 //         return(<DisplayCard cardValue={card}/>);
 //       })
->>>>>>> Stashed changes
 
 //       return(
 //         <div className="card-deck">
@@ -171,7 +261,6 @@ class RandomPage extends Component {
 //     }
 //  }
 
-<<<<<<< Updated upstream
 class DisplayCard extends Component {
 render() {
       return(
@@ -187,7 +276,6 @@ render() {
       );
   }
 }
-=======
 // class DisplayCard extends Component {
 // render() {
 
@@ -204,7 +292,6 @@ render() {
 //       );
 //   }
 // }
->>>>>>> Stashed changes
 
 
 class FilterBase extends Component {
