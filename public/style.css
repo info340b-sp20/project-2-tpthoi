@@ -24,6 +24,7 @@
     .box h1 {
         font-size: 5rem;
         font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", sans-serif;
+        color: black;
     }
     
     .box h2 {
@@ -73,7 +74,7 @@
             background-image: url('./img/md.jpg');
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: auto;
         }
         .imgfooter {
             display: block;
@@ -89,6 +90,9 @@
     @media (min-width: 992px) {
         .splash {
             background-image: url('./img/lg.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto;
         }
         .splashnav a {
             font-size: 1.5rem;
@@ -104,6 +108,9 @@
     @media (min-width: 1200px) {
         .splash {
             background-image: url('./img/xl.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto;
         }
     }
     
