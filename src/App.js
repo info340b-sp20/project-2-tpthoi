@@ -1,47 +1,119 @@
+'use strict';
+
 import React, { Component } from 'react';
 import { ReactiveBase, DataSearch, MultiList, ResultCard } from '@appbaseio/reactivesearch';
 import './App.css'
+import Button from 'react-bootstrap/Button'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { Route, Link, Switch, Redirect, NavLink } from 'react-router-dom';
 import _ from 'lodash';
-import SAMPLE_DOGS from './data.json'; //a sample list of dogs (model)
+import SAMPLE_DOGS from './data.json'; //a sample list of clothes(model)
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      filter: true,
+      sorted: false
+    }
+  }
+
+  handleClickFilter = (event) => {
+    this.setState({filter: true});
+    this.setState({sorted: false});
+  }
+
+  handleClickCloset = (event) => {
+    this.setState({sorted: true});
+    this.setState({filter: false});
+  }
+
+
+
   render() {
+    let mainBase = '';
+    if (this.state.filter) {
+      console.log("Made it bro")
+      mainBase = <FilterBase />;
+
+      console.log(mainBase)
+     
+    } 
+
+    if (this.state.sorted) {
+      console.log("U are stooopid")
+      mainBase = <RandomPage />
+    }
+    
+
     return (
+      <div>
+      <div className= 'container'>
+      <header id="header" className="jumbotron jumbotron-fluid text-white bg-dark">
+          <div className="view">
+            <h1 className="text-center">My Closet</h1>
+              <div className="typingIt">
+                <p className="lead text-center">
+                    A way to see your whole closet with just one click
+                </p>
+              </div>
+
+            <div className="navbar-container">
+              <nav className="navbar navbar-expand navbar-dark">
+                <div className="navbar-nav">
+                  <a href="#/">Home</a>
+                  <a href="#closet">Filter My Closet</a>
+                  <a href="#filtering" onClick={this.handleClickFilter}>All My Clothes</a>
+                  <a href="#closeting" onClick={this.handleClickCloset}>Build an Outfit</a>
+                  <a href="#contact">Contact Us</a>
+                </div>
+              </nav>  
+            </div>      
+          </div>
+      </header>
+    </div>
+
+    {/* <div id="filtering">
+        <FilterBase />
+    </div>
+
+
+    <div id="closeting">
+        <RandomPage />
+    </div>  */}
+
+    <div>
+      {mainBase};
+    </div>
+
+    </div>
+    );
+  }
+}
+
+class RandomPage extends Component {
+  render() {
+  return (
+  <h1>
+    Sort It Out
+  </h1>
+  );
+}
+}
+
+class FilterBase extends Component {
+  render() {
+    return(
       <ReactiveBase
         app="clothes"
         credentials="EjhqnRm46:f8bcb824-c33d-49ff-a2fd-b9882162c66a"
-      >
-
-      <div className= 'container'>
-        <header id="header" className="jumbotron jumbotron-fluid text-white bg-dark">
-            <div className="view">
-              <h1 className="text-center">My Closet</h1>
-                <div className="typingIt">
-                  <p className="lead text-center">
-                      A way to see your whole closet with just one click
-                  </p>
-                </div>
-
-              <div className="navbar-container">
-                <nav className="navbar navbar-expand navbar-dark">
-                  <div className="navbar-nav">
-                    <a href="#/">Home</a>
-                    <a href="#closet">My Closet</a>
-                    <a href="#/">Build an Outfit</a>
-                    <a href="#contact">Contact Us</a>
-                  </div>
-                </nav>  
-              </div>      
-            </div>
-        </header>
-      </div>
-  
+    >
       <div className="search">
           <Search />
       </div>
+
       <div className="ListContainer">
 
         <div className="lists">
@@ -106,12 +178,29 @@ class DetailPage extends Component {
 }
 
 class SortCards extends Component {
+
+  // handleClick = (event) => {
+  //   return(
+  //   <div>
+  //     <SortingPrice />
+  //   </div>
+  //   );
+  // }
+
   render() {
     return(
       <DropdownButton id="dropdown-basic-button" title="Sort By">
-        <Dropdown.Item href="">Sort By Price</Dropdown.Item>
+        <div className="priceContainer" onClick="handleClick">
+          <Dropdown.Item href="">Sort By Price</Dropdown.Item>
+        </div>
+
+        <div>
         <Dropdown.Item href="">Sort By Rating</Dropdown.Item>
-        <Dropdown.Item href="">Sort By Name</Dropdown.Item>
+        </div>
+
+        <div>
+          <Dropdown.Item href="">Sort By Name</Dropdown.Item>
+        </div>
       </DropdownButton>
     )
   }
