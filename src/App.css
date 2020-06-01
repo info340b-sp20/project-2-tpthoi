@@ -5,7 +5,6 @@
     padding: 0px 0px;
 }
 
-
 h1 {
     color: black;
 }
@@ -14,33 +13,32 @@ h1 {
 /* inspiration citation: https://css-tricks.com/snippets/css/typewriter-effect/" 
    gives the typing effect for the beginning sentence
 */
+
 .typingIt p {
-    overflow: hidden; 
-
-    margin: 0 auto; 
-    letter-spacing: .20em; 
-
+    overflow: hidden;
+    margin: 0 auto;
+    letter-spacing: .20em;
     border-right: .30em solid;
     white-space: nowrap;
-
     color: black;
-
     animation: typer 3.5s steps(40, end), blinking .75s step-end;
-  }
-  
-  @keyframes typer {
-    from { width: 0 }
-    to { width: 100% }
 }
 
+@keyframes typer {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
 
 #header {
-  margin: 0;
-  width: 100%;
-  display: inline-block;
-
-  padding-left: 0rem;
-  padding-right: 0rem;
+    margin: 0;
+    width: 100%;
+    display: inline-block;
+    padding-left: 0rem;
+    padding-right: 0rem;
 }
 
 .view {
@@ -55,7 +53,6 @@ h1 {
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
-
     padding-left: 0rem;
     padding-right: 0rem;
 }
@@ -63,11 +60,10 @@ h1 {
 .navbar-nav a {
     color: white;
     font-size: 1.2rem;
-    margin-top: 25px; 
-    padding-left:15px;
-    padding-right:15px;
+    margin-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-
 
 .ListContainer {
     display: flex;
@@ -82,13 +78,12 @@ h2 {
 }
 
 .lists {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-  0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  flex-shrink: 2;
-  padding-top: 10px;
-  padding-left: 15px;
-  margin-left: 10px;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex-shrink: 2;
+    padding-top: 10px;
+    padding-left: 15px;
+    margin-left: 10px;
 }
 
 .sortingContainer {
@@ -115,7 +110,7 @@ h2 {
 }
 
 .clothes {
-    flex:1;
+    flex: 1;
     width: fit-content;
     flex-direction: column;
 }
@@ -126,17 +121,16 @@ h2 {
     text-align: center;
 }
 
-
-  .result-image {
+.result-image {
     -webkit-transition-duration: 1s;
     -o-transition-duration: 1s;
     transition-duration: 1s;
     overflow: hidden;
     height: 325px !important;
     width: 250px !important;
-  }
-  
-  .toggle-button {
+}
+
+.toggle-button {
     display: none;
     position: fixed;
     font-size: 15px;
@@ -144,30 +138,27 @@ h2 {
     z-index: 1;
     bottom: 5rem;
     opacity: 1;
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  
+}
 
 .overlay-title {
     color: white;
     margin-top: 0px;
-  }
-  
-  .ih-item {
+}
+
+.ih-item {
     position: relative;
     -webkit-transition: all 0.35s ease-in-out;
     -o-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
-  }
-  
-  .ih-item a:hover {
+}
+
+.ih-item a:hover {
     text-decoration: none;
-  }
-  
-  .ih-item.square .info {
+}
+
+.ih-item.square .info {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -176,36 +167,36 @@ h2 {
     text-align: center;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-  }
-  
-  .ih-item.square.effect6 {
+}
+
+.ih-item.square.effect6 {
     overflow: hidden;
-  }
-  
-  .ih-item.square.effect6.colored .info {
+}
+
+.ih-item.square.effect6.colored .info {
     background: #1a4a72;
     background: rgba(26, 74, 114, 0.6);
-  }
-  
-  .ih-item.square.effect6.colored .info h3 {
+}
+
+.ih-item.square.effect6.colored .info h3 {
     background: rgba(12, 34, 52, 0.6);
-  }
-  
-  .ih-item.square.effect6 .img,
-  .ih-item.square.effect6 .info {
+}
+
+.ih-item.square.effect6 .img,
+.ih-item.square.effect6 .info {
     -webkit-transition: all 0.35s ease-in-out;
     -o-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
-  }
-  
-  .ih-item.square.effect6 .info {
+}
+
+.ih-item.square.effect6 .info {
     background: #333;
     background: rgba(0, 0, 0, 0.6);
     visibility: hidden;
     opacity: 0;
-  }
-  
-  .ih-item.square.effect6 .info h3 {
+}
+
+.ih-item.square.effect6 .info h3 {
     text-transform: uppercase;
     color: #fff;
     text-align: center;
@@ -215,34 +206,36 @@ h2 {
     -webkit-transition: all 0.35s ease-in-out;
     -o-transition: all 0.35s ease-in-out;
     transition: all 0.35s ease-in-out;
-  }
-  
-  .ih-item.square.effect6 a:hover .img {
+}
+
+.ih-item.square.effect6 a:hover .img {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
-  }
-  
-  .ih-item.square.effect6 a:hover .info {
+}
+
+.ih-item.square.effect6 a:hover .info {
     visibility: visible;
     opacity: 1;
-  }
-  
-  .ih-item.square.effect6.top_to_bottom .info h3 {
+}
+
+.ih-item.square.effect6.top_to_bottom .info h3 {
     -webkit-transform: translateY(-100%);
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
-  }
-  
-  .ih-item.square.effect6.top_to_bottom a:hover .info h3 {
+}
+
+.ih-item.square.effect6.top_to_bottom a:hover .info h3 {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
-  }
-  
-  #number, #mailLink{
+}
+
+#number,
+#mailLink {
     color: navy;
 }
+
 
 /* #filtering {
   display: none;
@@ -254,41 +247,53 @@ h2 {
 } */
 
 .clothesimg {
-  width: 20vw;
+    width: 20vw;
 }
 
 .clothescont {
-  width: 25vw;
-  padding-right: 10px;
-  padding-left: 10px;
-  justify-content: center;
-  padding-bottom: 10px;
+    width: 25vw;
+    padding-right: 10px;
+    padding-left: 10px;
+    justify-content: center;
+    padding-bottom: 10px;
 }
+
 .yourItem {
     margin-left: 20px;
     padding-top: 10px;
     margin-right: 20px;
     margin-bottom: 20px;
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .clothesheader {
-  text-align: center;
-  font-size: 5vw;
+    text-align: center;
+    font-size: 5vw;
 }
+
 .additional {
-  text-align: center;
-  margin-top: 5px;
+    text-align: center;
+    margin-top: 5px;
 }
+
 .SelectionContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  align-items: stretch;
-  align-content: flex-start;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: flex-start;
 }
+
 .tagdetail {
-  font-size: 3vw;
-  color: grey;
+    font-size: 3vw;
+    color: grey;
+}
+
+.formContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: flex-start;
 }
