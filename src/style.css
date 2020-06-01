@@ -31,7 +31,7 @@
         color: black;
     }
     
-    footer {
+    .imgfooter {
         display: none;
         color: black;
         position: fixed;
@@ -70,12 +70,12 @@
     
     @media (min-width: 768px) {
         .splash {
-            background-image: url('../img/md.jpg');
+            background-image: url('./img/md.jpg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
-        footer {
+        .imgfooter {
             display: block;
             position: fixed;
             left: 0;
@@ -88,7 +88,7 @@
     
     @media (min-width: 992px) {
         .splash {
-            background-image: url('../img/lg.jpg');
+            background-image: url('./img/lg.jpg');
         }
         .splashnav a {
             font-size: 1.5rem;
@@ -103,7 +103,7 @@
     
     @media (min-width: 1200px) {
         .splash {
-            background-image: url('../img/xl.jpg');
+            background-image: url('./img/xl.jpg');
         }
     }
     

@@ -1,9 +1,12 @@
+'use strict'
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'style.css';
+import './style.css';
+import './App.js';
 
-class App extends Component {
+class Splash extends Component {
     render() {
         return (
             <body className="splash">
@@ -22,10 +25,14 @@ class App extends Component {
                     <a href="App.js" className="myButton">Enter</a>
                 </main>
             
-                <footer>
+                <footer className="imgfooter">
                     Background image used from <cite><a href="https://unsplash.com/photos/zFlFvx-ygTo">unsplash</a></cite>
                 </footer>
             </body>
         );
     }
 }
+
+export default Splash;
+
+export {Splash};
