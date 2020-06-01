@@ -98,52 +98,54 @@ class RandomPage extends Component {
         Sort It Out
       </h1>
 
-      {/* <div>
+      <div>
         <DisplayList cardValue={rootRef}/>
-      </div> */}
+      </div>
       </div>
   );
 }
 }
 
-//  class DisplayList extends Component {
+ class DisplayList extends Component {
    
-//     render() {
+    render() {
 
-//       let cardArray = this.props.cardValue.map((card) => {
-//         return(<DisplayCard  cardValue={card}/>);
-//       })
+      let objectCards = "";
 
-//       return(
-//         <div className="card-deck">
-//           {cardArray};
-//         </div>
-//       );
-//     }
-//  }
+      objectCards = rootRef.on('value', (snapshot) => {
+      let objectArray = snapshot.val();
+      return objectArray; 
+    });
+  
 
-// class DisplayCard extends Component {
-// render() {
+      let cardArray = this.props.cardValue.map((card) => {
+        return(<DisplayCard cardValue={card}/>);
+      })
 
-//   let objectCards = "";
+      return(
+        <div className="card-deck">
+          {cardArray};
+        </div>
+      );
+    }
+ }
 
-//     objectCards = rootRef.on('value', (snapshot) => {
-//     let objectArray = snapshot.val();
-//     return objectArray; 
-//   });
+class DisplayCard extends Component {
+render() {
 
-//   console.log(this.props.cardValue);
+ 
+  console.log(this.props.cardValue);
 
-//       return(
-//           <div className="card">
-//               <img className="card-img-top" src={this.props.cardValue.image} />
-//           <div className="card-body">
-//           <h2 className="card-title"></h2>
-//           </div>
-//           </div>
-//       );
-//   }
-// }
+      return(
+          <div className="card">
+              <img className="card-img-top" src={this.props.cardValue.image} />
+          <div className="card-body">
+          <h2 className="card-title"></h2>
+          </div>
+          </div>
+      );
+  }
+}
 
 class FilterBase extends Component {
   render() {
