@@ -18,6 +18,8 @@ class FilterBase extends Component {
         app="clothes"
         credentials="EjhqnRm46:f8bcb824-c33d-49ff-a2fd-b9882162c66a"
     >
+
+
       <div className="search">
           <Search />
       </div>

@@ -15,6 +15,7 @@ h1 {
 */
 
 .typingIt p {
+    display: none;
     overflow: hidden;
     margin: 0 auto;
     letter-spacing: .20em;
@@ -58,12 +59,14 @@ h1 {
 }
 
 .navbar-nav a {
-    color: white;
+    display: none;
+    color: black;
     font-size: 1.2rem;
     margin-top: 25px;
     padding-left: 15px;
     padding-right: 15px;
 }
+
 
 .ListContainer {
     display: flex;
@@ -290,10 +293,59 @@ h2 {
     color: grey;
 }
 
-.formContainer {
+.buttonContainer {
+    padding: 1rem;
+}
+
+ .formContainer {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    flex-wrap: no-wrap;
+    flex-direction: column;
+    justify-content: center;
     align-items: stretch;
     align-content: flex-start;
+    padding: 1rem;
+    width: 90%;
+} 
+
+.paragraphContainer {
+    display: inline-block;
+    justify-content: strech;
+    text-align: center;
+}
+
+.card {
+    margin: 3rem;
+    display: inline-block;
+    padding: 0rem;
+}
+
+.card-deck {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.deckCards {
+    display: flex;
+}
+
+
+@media (min-width: 598px) {
+    .search {
+        width: 30%;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav a {
+        display: inline-block;
+    }
+    
+    .typingIt p{
+        display: inline-block;
+    }
+}
+
+@media (min-width: 992px) {
+    
 }

@@ -10,7 +10,7 @@ class Search extends Component {
         componentId="mainSearch"
         dataField={["title", "brand","color","type"]}
         queryFormat="and"
-        placeholder="Search for clothing..."  
+        placeholder="Search..."  
       />
       </label>
       );

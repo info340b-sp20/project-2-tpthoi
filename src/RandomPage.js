@@ -121,72 +121,69 @@ class RandomPage extends Component {
       console.log(newArray);
   
       return (
-        <div>
-          <h1>
-            What do I own? 
-          </h1>
-          <div class="formContainer">
+        <div id="containerSearch">
+          <div className="paragraphContainer">
+            <h1>
+              What do I own? 
+            </h1>
+          </div>
+          <div className="formContainer">
             <form>
               <div className="InputContainer">
   
-                <label for="brand_input" aria-label="source Input">Brand: </label>
+                <label for="brand_input" aria-label="brand Input">Brand: </label>
                 <input 
                   id="brand_input" 
-                  placeholder="e.g.(Nike)" 
+                  placeholder="e.g. Nike" 
                   type="input" name="input" 
-                  aria-label="Brand Input" 
                   className= "form-control"
                   onChange= {(event) => this.setState({BrandCard: event.target.value})}
                   />
   
-                <label for="brand_input" aria-label="source Input">Color:  </label>
+                <label for="color_input" aria-label="color Input">Color:  </label>
                 <input 
                   id="color_input" 
-                  placeholder="e.g.(Nike)" 
+                  placeholder="e.g. Purple" 
                   type="input" name="input" 
-                  aria-label="Brand Input" 
                   className= "form-control"
                   onChange= {(event) => this.setState({ColorCard: event.target.value})}
                   />
   
-                <label for="brand_input" aria-label="source Input">Image: </label>
+                <label for="image_input" aria-label="image Input">Image: </label>
                 <input 
                   id="image_input" 
-                  placeholder="e.g.(Nike)" 
-                  type="input" name="input" 
-                  aria-label="Brand Input" 
+                  placeholder="e.g src" 
+                  type="input" name="input"
                   className= "form-control"
                   onChange= {(event) => this.setState({ImageCard: event.target.value})}
                   />
   
   
-                <label for="brand_input" aria-label="source Input">Title:  </label>
+                <label for="title_input" aria-label="title Input">Title:  </label>
                 <input 
                   id="title_input" 
-                  placeholder="e.g.(Nike)" 
+                  placeholder="e.g. Grey Hoodie" 
                   type="input" name="input" 
-                  aria-label="Brand Input" 
                   className= "form-control"
                   onChange= {(event) => this.setState({TitleCard: event.target.value})}
                   />
   
-                <label for="brand_input" aria-label="source Input">Type: </label>
+                <label for="type_input">Type: </label>
                 <input 
                   id="type_input" 
-                  placeholder="e.g.(Nike)" 
+                  placeholder="e.g Hoodies" 
                   type="input" name="input" 
-                  aria-label="Brand Input" 
                   className= "form-control"
                   onChange= {(event) => this.setState({TypeCard: event.target.value})}
                   />
               </div>
   
               <div class="buttonContainer">
-                <button className="btn btn-primary" onClick={() => this.addCard()} id="submitButton" type="submit">Add Card</button>
+                <button className="btn btn-primary bg-dark text-white" onClick={() => this.addCard()} id="submitButton" type="submit">Add Card</button>
               </div>
             </form>
           </div>
-          <div>
+          <div class="deckCards">
             <DisplayList cardValue={this.state.cardArray}/>
           </div>
           </div>
