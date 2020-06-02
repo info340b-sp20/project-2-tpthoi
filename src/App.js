@@ -92,7 +92,7 @@ class RandomPage extends Component {
     super(props);
 
     this.state = {
-      cardArray: [],
+      cardArray: {},
       BrandCard: '',
       ColorCard: '',
       ImageCard: '',
@@ -107,13 +107,21 @@ class RandomPage extends Component {
      
     this.state.rootRef.on('value', (snapshot) => {
       let objectArray = snapshot.val();
+      console.log(objectArray);
+      console.log("i mounted");
       this.setState({cardArray: objectArray});
     });
   }
 
- // componentDidUpdate() {
-  //   if (this.state.rootRef != )
-  // }
+ componentDidUpdate(prevProps, prevState) {
+   if (prevProps.data !== this.props.data) {
+   this.state.rootRef.on('value', (snapshot) => {
+      let objectArray = snapshot.val();
+      console.log("entered");
+      this.setState({cardArray: objectArray});
+      });
+    }
+  }
 
   addCard() {
     console.log("made it here");
@@ -136,8 +144,11 @@ class RandomPage extends Component {
         TitleCard:""
     })}).catch((d) => console.log("error " + d));
 
-  return (<DisplayList cardValue={this.state.cardArray}/>);
+    this.render();
   }
+
+
+
   render() {
     let newArray = Object.keys(this.state.cardArray);
     console.log(newArray);
@@ -225,10 +236,20 @@ class RandomPage extends Component {
       }
     }
    
+
     render() {
-      let cardArray = this.props.cardValue.map((card) => {
-        return(<DisplayCard cardValue={card}/>);
-      })
+      console.log("i am here");
+      console.log(this.props.cardValue);
+      let cardArray = [];
+
+      for (var key of Object.keys(this.props.cardValue)) {
+        console.log(this.props.cardValue[key])
+        cardArray.push(<DisplayCard cardValue={this.props.cardValue[key]} />);
+      }
+    
+      // let cardArray = this.props.cardValue.map((card) => {
+      //   return(<DisplayCard cardValue={card}/>);
+      // })
 
       return(
         <div className="card-deck">
